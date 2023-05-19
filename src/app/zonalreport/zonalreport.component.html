@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Residential Property Form (Unit Area Value)</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/propertyform">Self-Assessment Form</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/zonalreport">Zonal wise Report</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/addzone">Add new Zone</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+  <br/><br/>
+  <label>
+    Enter the year to find the zonal collection
+  </label>
+  <br/><br/>
+  <input type="number" name="year" placeholder="year" [(ngModel)]="year"/>
+  <br/><br/>
+  <button (click)="onClick()">Find the Zonal Collection</button>
+  <br/><br/>
+
+  <br/>
+
+<div *ngIf="this.year!=0">
+  <h3 *ngIf="listZone.length!=0">Zonal wise collection of property tax for the year {{this.year}}</h3>
+  <br/>
+
+  <h3 *ngIf="novisible"> No Zone Wise Collection in the year {{this.year}}</h3>
+
+  <table *ngIf="listZone.length!=0" >
+
+    <tr >
+      <th>Zone Name</th>
+      <th >Property Type</th>
+      <th>Amount Collected</th>
+    </tr>
+
+    <ng-container *ngFor="let zone of listZone;let i=index">
+    <tr>
+      <td rowspan="2">{{zone.zonename}}</td>
+      <td >Owner</td>
+      <td>{{zone.ownerval}}</td>
+    </tr>
+
+    <tr>
+      <td >Tenanted</td>
+      <td>{{zone.tenantedval}}</td>
+    </tr>
+  </ng-container>
+  </table>
+</div>
+
+</div>

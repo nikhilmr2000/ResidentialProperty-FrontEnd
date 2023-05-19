@@ -1,0 +1,100 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Residential Property Form (Unit Area Value)</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/propertyform">Self-Assessment Form</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/zonalreport">Zonal wise Report</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/addzone">Add new Zone</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<br/>
+
+<hr>
+
+<div class="container">
+
+<h2 style="margin:auto;">Add New Zone</h2>
+<br/>
+
+<div style="float:left">
+  <h5>Description of the property</h5>
+</div>
+<div style="margin-left:15px;float:left">
+  <select id="desc" [(ngModel)]="this.desc"> 
+    <option value="desc">Select a property Description</option>
+    <option *ngFor="let descr of descriptionlist" [value]="descr">{{descr}}</option>
+   
+  </select>
+</div>
+<br/>
+
+<div style="clear:both;">
+
+</div>
+<br/>
+
+<div style="float:left">
+  <h5>Status</h5>
+</div>
+<div style="margin-left:200px;float:left">
+  <select  id="status" [(ngModel)]="this.status">
+    <option value="statt">Select a Status</option>
+    <option  *ngFor="let stat of statuslist" [value]="stat">{{stat}}</option>
+  </select>
+</div>
+
+<div style="clear:both;">
+</div>
+
+<br/>
+
+<div style="float:left">
+  <h5>Zone</h5>
+</div>
+<div style="margin-left:135px;float:left">
+ <input type="text" name="zone" placeholder="" (input)="onzone($event)" required />
+</div>
+
+<div style="clear:both;">
+</div>
+
+<br/>
+
+<div style="float:left">
+  <h5>Unit Area Value</h5>
+</div>
+<div style="margin-left:135px;float:left">
+ <input type="number" name="unitvalue" placeholder="" (input)="onunit($event)" required />
+</div>
+
+<div style="clear:both"></div>
+<br/>
+
+
+<button (click)="addzone()">Add New Zone</button>
+
+</div>
+
+
+<br/><br/>
+
+<hr>
+
+
+<br/>
+<hr>
